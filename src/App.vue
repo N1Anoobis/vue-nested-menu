@@ -26,4 +26,8 @@ export default class App extends Vue {}
 h1 {
   padding: 20px;
 }
+a{
+  text-decoration:  none;
+  color: black;
+}
 </style>

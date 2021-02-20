@@ -51,6 +51,8 @@ export default class SideBar extends Vue {
 .title {
   padding: 10px 0;
   text-align: left;
-  /* text-indent: -20px; */
+}
+.router-link-active{
+  color: orange;
 }
 </style>
