@@ -25,7 +25,7 @@ const routes: Array<RouteConfig> = [
   },
   {
     path: "/Pop",
-    name: "pop",
+    name: "Pop",
     component: Pop,
     children: [
       {
@@ -66,7 +66,7 @@ const routes: Array<RouteConfig> = [
   },
   {
     path: "/Rock",
-    name: "rock",
+    name: "Rock",
     component: Rock,
     children: [
       {

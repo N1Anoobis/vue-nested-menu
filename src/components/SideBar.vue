@@ -2,8 +2,11 @@
   <div id="sidebar">
     <ul id="navigation">
       <li v-for="(item, index) in navigation" :key="'item' + index">
-        <div class="title" @click="item.open = !item.open">
-          <router-link :to="item.title">
+        <div
+          class="title"
+          @click="item.open = !item.open"
+        >
+          <router-link :to="{ name: item.title }">
             {{ item.title }}
           </router-link>
         </div>
