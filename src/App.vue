@@ -26,8 +26,15 @@ export default class App extends Vue {}
 h1 {
   padding: 20px;
 }
-a{
-  text-decoration:  none;
+a {
+  text-decoration: none;
   color: black;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.router-link-active,
+.router-link-exact-active {
+  color: orange;
 }
 </style>

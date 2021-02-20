@@ -42,7 +42,4 @@ export default class DropDown extends Vue {
   padding: 10px 0;
   text-align: left;
 }
-.router-link-active{
-  color: orange;
-}
 </style>

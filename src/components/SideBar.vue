@@ -2,10 +2,7 @@
   <div id="sidebar">
     <ul id="navigation">
       <li v-for="(item, index) in navigation" :key="'item' + index">
-        <div
-          class="title"
-          @click="item.open = !item.open"
-        >
+        <div class="title" @click="item.open = !item.open">
           <router-link :to="{ name: item.title }">
             {{ item.title }}
           </router-link>
@@ -26,6 +23,9 @@ import DropDown from "./DropDown.vue";
   },
 })
 export default class SideBar extends Vue {
+  created() {
+    this.$store.dispatch("getData");
+  }
   get navigation() {
     return this.$store.getters.navigation;
   }
@@ -51,8 +51,5 @@ export default class SideBar extends Vue {
 .title {
   padding: 10px 0;
   text-align: left;
-}
-.router-link-active{
-  color: orange;
 }
 </style>

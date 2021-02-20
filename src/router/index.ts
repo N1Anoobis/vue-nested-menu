@@ -24,40 +24,40 @@ const routes: Array<RouteConfig> = [
     component: Home,
   },
   {
-    path: "/Pop",
-    name: "Pop",
+    path: "/pop",
+    name: "pop",
     component: Pop,
     children: [
       {
         path: "band1",
-        name: "Pop band1",
+        name: "pop band1",
         component: PopBand1,
         children: [
           {
             path: "guy1",
-            name: "Pop guy1",
+            name: "pop guy1",
             component: PopGuy1,
           },
           {
             path: "guy2",
-            name: "Pop guy2",
+            name: "pop guy2",
             component: PopGuy2,
           },
         ],
       },
       {
         path: "band2",
-        name: "Pop band2",
+        name: "pop band2",
         component: PopBand2,
         children: [
           {
             path: "guy3",
-            name: "Pop guy3",
+            name: "pop guy3",
             component: PopGuy3,
           },
           {
             path: "guy4",
-            name: "Pop guy4",
+            name: "pop guy4",
             component: PopGuy4,
           },
         ],
@@ -65,40 +65,40 @@ const routes: Array<RouteConfig> = [
     ],
   },
   {
-    path: "/Rock",
-    name: "Rock",
+    path: "/rock",
+    name: "rock",
     component: Rock,
     children: [
       {
         path: "band1",
-        name: "Rock band1",
+        name: "rock band1",
         component: RockBand1,
         children: [
           {
             path: "guy1",
-            name: "Rock guy1",
+            name: "rock guy1",
             component: RockGuy1,
           },
           {
             path: "guy2",
-            name: "Rock guy2",
+            name: "rock guy2",
             component: RockGuy2,
           },
         ],
       },
       {
         path: "band2",
-        name: "Rock band2",
+        name: "rock band2",
         component: RockBand2,
         children: [
           {
             path: "guy3",
-            name: "Rock guy3",
+            name: "rock guy3",
             component: RockGuy3,
           },
           {
             path: "guy4",
-            name: "Rock guy4",
+            name: "rock guy4",
             component: RockGuy4,
           },
         ],

@@ -1,51 +1,50 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import { genres, bands, musicians } from "../mockedAPI/BackendData";
+import { NavigationItem, Genre } from "../mockedAPI/interfaces";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    navigation: [
-      {
-        title: "Rock",
-        open: false,
-        subnav: [
-          {
-            title: "Rock band1",
-            open: false,
-            subnav: [{ title: "Rock guy1" }, { title: "Rock guy2" }],
-          },
-          {
-            title: "Rock band2",
-            open: false,
-            subnav: [{ title: "Rock guy3" }, { title: "Rock guy4" }],
-          },
-        ],
-      },
-      {
-        title: "Pop",
-        open: false,
-        subnav: [
-          {
-            title: "Pop band1",
-            open: false,
-            subnav: [{ title: "Pop guy1" }, { title: "Pop guy2" }],
-          },
-          {
-            title: "Pop band2",
-            open: false,
-            subnav: [{ title: "Pop guy3" }, { title: "Pop guy4" }],
-          },
-        ],
-      },
-    ],
+    navigation: [],
   },
   getters: {
     navigation: (state) => {
       return state.navigation;
     },
   },
-  mutations: {},
-  actions: {},
+  mutations: {
+    loadDataToStore(state, data) {
+      state.navigation = data;
+    },
+  },
+  actions: {
+    getData(context): NavigationItem[] {
+      const data = genres.map((genre: Genre) => {
+        return {
+          title: genre.name,
+          open: false,
+          subnav: bands
+            .filter((b) => genre.bands.includes(b.id))
+            .map((band) => {
+              return {
+                title: band.name,
+                open: false,
+                subnav: musicians
+                  .filter((m) => band.musicians.includes(m.id))
+                  .map((musician) => {
+                    return {
+                      title: musician.name,
+                    };
+                  }),
+              };
+            }),
+        };
+      });
+      context.commit("loadDataToStore", data);
+      return data;
+    },
+  },
   modules: {},
 });
