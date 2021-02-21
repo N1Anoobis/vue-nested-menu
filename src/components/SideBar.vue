@@ -1,6 +1,6 @@
 <template>
-  <div id="sidebar">
-    <ul id="navigation">
+  <div class="sidebar">
+    <ul class="navigation">
       <li v-for="(item, index) in navigation" :key="'item' + index">
         <div class="title" @click="item.open = !item.open">
           <router-link :to="{ name: item.title }">
@@ -33,17 +33,17 @@ export default class SideBar extends Vue {
 </script>
 
 <style scoped>
-#sidebar {
+.sidebar {
   width: 20vw;
   min-height: 90vh;
   border-right: 1px black solid;
 }
-#navigation {
+.navigation {
   margin: 0;
   padding: 0;
   list-style: none;
 }
-#navigation li {
+.navigation li {
   width: 100%;
   cursor: pointer;
   border-bottom: 1px black solid;

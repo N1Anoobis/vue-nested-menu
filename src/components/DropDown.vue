@@ -1,5 +1,5 @@
 <template>
-  <transition name="expand">
+  <transition>
     <ul v-show="list.open" class="sub-items">
       <li
         class="sub-item"
