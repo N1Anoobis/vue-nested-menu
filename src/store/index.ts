@@ -1,7 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import { genres, bands, musicians } from "../mockedAPI/BackendData";
-import { NavigationItem, Genre } from "../mockedAPI/interfaces";
+import { Genre } from "../mockedAPI/interfaces";
 
 Vue.use(Vuex);
 
@@ -18,29 +18,43 @@ export default new Vuex.Store({
     loadDataToStore(state, data) {
       state.navigation = data;
     },
-    changeIsOpenStatus: (state, item) => {
-      item.isOpen = !item.isOpen;
-    }
   },
   actions: {
-    getData(context): NavigationItem[] {
+    getData(context, item = { title: "", id: -1 }) {
+      const { title, id } = item;
+
+      console.log(id);
       const data = genres.map((genre: Genre) => {
         return {
-          id: 0,
+          id: 1,
           title: genre.name,
-          isOpen: false,
+          isOpen:
+            id === 1
+              ? genre.name === title
+                ? true
+                : false
+              : id === 2 && title.includes(genre.name)
+              ? true
+              : false,
           subnav: bands
             .filter((b) => genre.bands.includes(b.id))
             .map((band) => {
               return {
-                id: 1,
+                id: 2,
                 title: band.name,
-                isOpen: false,
+                isOpen:
+                  id === 2
+                    ? band.name === title
+                      ? true
+                      : false
+                    : id === 3 && title.includes(band.name)
+                    ? true
+                    : false,
                 subnav: musicians
                   .filter((m) => band.musicians.includes(m.id))
                   .map((musician) => {
                     return {
-                      id: 2,
+                      id: 3,
                       title: musician.name,
                     };
                   }),
@@ -51,9 +65,6 @@ export default new Vuex.Store({
       context.commit("loadDataToStore", data);
 
       return data;
-    },
-    setIsOpen(context, item) {
-      context.commit("changeIsOpenStatus", item);
     },
   },
   modules: {},

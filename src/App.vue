@@ -31,7 +31,7 @@ a {
   width: 100%;
   height: 100%;
 }
-.router-link-active,
+
 .router-link-exact-active {
   color: orange;
 }

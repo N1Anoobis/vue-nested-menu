@@ -33,7 +33,7 @@ export default class SideBar extends Vue {
   }
 
   setItem(item: NavigationItem) {
-    this.$store.dispatch("setIsOpen", item);
+    this.$store.dispatch("getData", item);
   }
 }
 </script>
@@ -58,4 +58,5 @@ export default class SideBar extends Vue {
   padding: 10px 0;
   text-align: left;
 }
+
 </style>

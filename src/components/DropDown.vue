@@ -28,7 +28,7 @@ export default class DropDown extends Vue {
   @Prop() list?: object[];
 
   setItem(item: NavigationItem) {
-    this.$store.dispatch("setIsOpen", item);
+    this.$store.dispatch("getData", item);
   }
 }
 </script>

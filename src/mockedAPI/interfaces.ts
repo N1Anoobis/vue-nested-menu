@@ -5,6 +5,7 @@ export interface Genre {
 }
 
 export interface NavigationItem {
+  id: number;
   title: string;
   isOpen?: boolean;
   subnav?: NavigationItem[];
