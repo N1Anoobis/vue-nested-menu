@@ -18,23 +18,29 @@ export default new Vuex.Store({
     loadDataToStore(state, data) {
       state.navigation = data;
     },
+    changeIsOpenStatus: (state, item) => {
+      item.isOpen = !item.isOpen;
+    }
   },
   actions: {
     getData(context): NavigationItem[] {
       const data = genres.map((genre: Genre) => {
         return {
+          id: 0,
           title: genre.name,
-          open: false,
+          isOpen: false,
           subnav: bands
             .filter((b) => genre.bands.includes(b.id))
             .map((band) => {
               return {
+                id: 1,
                 title: band.name,
-                open: false,
+                isOpen: false,
                 subnav: musicians
                   .filter((m) => band.musicians.includes(m.id))
                   .map((musician) => {
                     return {
+                      id: 2,
                       title: musician.name,
                     };
                   }),
@@ -43,7 +49,11 @@ export default new Vuex.Store({
         };
       });
       context.commit("loadDataToStore", data);
+
       return data;
+    },
+    setIsOpen(context, item) {
+      context.commit("changeIsOpenStatus", item);
     },
   },
   modules: {},

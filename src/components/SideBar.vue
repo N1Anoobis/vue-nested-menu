@@ -2,8 +2,8 @@
   <div class="sidebar">
     <ul class="navigation">
       <li v-for="(item, index) in navigation" :key="'item' + index">
-        <div class="title" @click="item.open = !item.open">
-          <router-link :to="{ name: item.title }">
+        <div class="title" @click="setItem(item)">
+          <router-link :to="{ name: item.title, params: { id: item.title } }">
             {{ item.title }}
           </router-link>
         </div>
@@ -16,6 +16,8 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import DropDown from "./DropDown.vue";
+import { NavigationItem } from "../mockedAPI/interfaces";
+
 @Component({
   name: "sidebar",
   components: {
@@ -28,6 +30,10 @@ export default class SideBar extends Vue {
   }
   get navigation() {
     return this.$store.getters.navigation;
+  }
+
+  setItem(item: NavigationItem) {
+    this.$store.dispatch("setIsOpen", item);
   }
 }
 </script>

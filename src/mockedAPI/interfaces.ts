@@ -6,6 +6,6 @@ export interface Genre {
 
 export interface NavigationItem {
   title: string;
-  open?: boolean;
+  isOpen?: boolean;
   subnav?: NavigationItem[];
 }

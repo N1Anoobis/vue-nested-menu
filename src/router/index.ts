@@ -24,39 +24,39 @@ const routes: Array<RouteConfig> = [
     component: Home,
   },
   {
-    path: "/pop",
+    path: "/:id",
     name: "pop",
     component: Pop,
     children: [
       {
-        path: "band1",
+        path: "/:id",
         name: "pop band1",
         component: PopBand1,
         children: [
           {
-            path: "guy1",
+            path: "/:id",
             name: "pop guy1",
             component: PopGuy1,
           },
           {
-            path: "guy2",
+            path: "/:id",
             name: "pop guy2",
             component: PopGuy2,
           },
         ],
       },
       {
-        path: "band2",
+        path: "/:id",
         name: "pop band2",
         component: PopBand2,
         children: [
           {
-            path: "guy3",
+            path: "/:id",
             name: "pop guy3",
             component: PopGuy3,
           },
           {
-            path: "guy4",
+            path: "/:id",
             name: "pop guy4",
             component: PopGuy4,
           },
@@ -65,39 +65,39 @@ const routes: Array<RouteConfig> = [
     ],
   },
   {
-    path: "/rock",
+    path: "/:id",
     name: "rock",
     component: Rock,
     children: [
       {
-        path: "band1",
+        path: "/:id",
         name: "rock band1",
         component: RockBand1,
         children: [
           {
-            path: "guy1",
+            path: "/:id",
             name: "rock guy1",
             component: RockGuy1,
           },
           {
-            path: "guy2",
+            path: "/:id",
             name: "rock guy2",
             component: RockGuy2,
           },
         ],
       },
       {
-        path: "band2",
+        path: "/:id",
         name: "rock band2",
         component: RockBand2,
         children: [
           {
-            path: "guy3",
+            path: "/:id",
             name: "rock guy3",
             component: RockGuy3,
           },
           {
-            path: "guy4",
+            path: "/:id",
             name: "rock guy4",
             component: RockGuy4,
           },
