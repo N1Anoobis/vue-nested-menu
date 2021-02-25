@@ -24,14 +24,19 @@ export default class App extends Vue {}
 h1 {
   padding: 20px;
 }
+
+.title {
+  text-align: left;
+}
 a {
   text-decoration: none;
   color: black;
   display: block;
   width: 100%;
   height: 100%;
+  text-align: center;
+  padding: 10px 0;
 }
-
 .router-link-exact-active {
   color: orange;
 }

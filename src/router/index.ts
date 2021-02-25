@@ -15,6 +15,8 @@ import PopGuy1 from "../views/PopGuy1.vue";
 import PopGuy2 from "../views/PopGuy2.vue";
 import PopGuy3 from "../views/PopGuy3.vue";
 import PopGuy4 from "../views/PopGuy4.vue";
+
+
 Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
@@ -24,12 +26,12 @@ const routes: Array<RouteConfig> = [
     component: Home,
   },
   {
-    path: "/pop",
+    path: "/:idGen",
     name: "pop",
     component: Pop,
     children: [
       {
-        path: "pop band1",
+        path: ":bands",
         name: "pop band1",
         component: PopBand1,
         children: [
@@ -46,7 +48,7 @@ const routes: Array<RouteConfig> = [
         ],
       },
       {
-        path: "pop band2",
+        path: ":bands",
         name: "pop band2",
         component: PopBand2,
         children: [
@@ -65,12 +67,12 @@ const routes: Array<RouteConfig> = [
     ],
   },
   {
-    path: "/rock",
+    path: "/:idGen",
     name: "rock",
     component: Rock,
     children: [
       {
-        path: "rock band1",
+        path: ":bands",
         name: "rock band1",
         component: RockBand1,
         children: [
@@ -87,7 +89,7 @@ const routes: Array<RouteConfig> = [
         ],
       },
       {
-        path: "rock band2",
+        path: ":bands",
         name: "rock band2",
         component: RockBand2,
         children: [

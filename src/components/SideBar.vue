@@ -8,7 +8,9 @@
       </div>
       <li v-for="(item, index) in navigation" :key="'item' + index">
         <div class="title" @click="setItem(item)">
-          <router-link :to="{ name: item.title, params: { id: item.title } }">
+          <router-link
+            :to="{ name: item.title, params: { idGen: item.title } }"
+          >
             {{ item.title }}
           </router-link>
         </div>
@@ -63,8 +65,5 @@ export default class SideBar extends Vue {
   cursor: pointer;
   border-bottom: 1px black solid;
 }
-.title {
-  padding: 10px 0;
-  text-align: left;
-}
+
 </style>

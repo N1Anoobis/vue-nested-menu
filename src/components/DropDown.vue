@@ -7,7 +7,13 @@
         :key="'item' + index"
       >
         <div class="title" @click="setItem(item)">
-          <router-link :to="{ name: item.title, params: { id: item.title } }">
+          <router-link
+            :to="{
+              name: item.title,
+              params:
+                item.id === 2 ? { bands: item.title } : { id: item.title },
+            }"
+          >
             {{ item.title }}
           </router-link>
         </div>
@@ -43,8 +49,4 @@ export default class DropDown extends Vue {
   cursor: pointer;
 }
 
-.title {
-  padding: 10px 0;
-  text-align: left;
-}
 </style>
