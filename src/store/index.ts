@@ -1,9 +1,10 @@
 import Vue from "vue";
-import Vuex from "vuex";
+import Vuex, { StoreOptions } from "vuex";
 import { calculate } from "../calculateData";
+import { RootState } from "./types";
 Vue.use(Vuex);
 
-export default new Vuex.Store({
+const store: StoreOptions<RootState> = {
   state: {
     navigation: [],
   },
@@ -14,7 +15,7 @@ export default new Vuex.Store({
   },
   mutations: {
     loadDataToStore(state, data) {
-      setTimeout(() => (state.navigation = data), 100);
+      state.navigation = data;
     },
   },
   actions: {
@@ -24,4 +25,6 @@ export default new Vuex.Store({
     },
   },
   modules: {},
-});
+};
+
+export default new Vuex.Store<RootState>(store);
